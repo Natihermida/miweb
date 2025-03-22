@@ -1,0 +1,17 @@
+{% extends 'principal/base.html' %}
+
+{% block title %}Listado de Proyectos{% endblock %}
+
+{% block content %}
+<h1>Proyectos</h1>
+<ul>
+    {% for proyecto in proyectos %}
+    <li>
+        <h2><a href="{% url 'proyecto_detail' proyecto.id %}">{{ proyecto.nombre }}</a></h2>
+        <p>{{ proyecto.descripcion }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+

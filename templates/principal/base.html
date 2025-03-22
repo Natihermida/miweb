@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Sitio Web{% endblock %}</title>
+    <!-- Enlaces a archivos CSS -->
+    {% block extrahead %}{% endblock %}
+</head>
+<body>
+    <header>
+        <!-- Contenido del encabezado, como el logo y el menú de navegación -->
+        <nav>
+            <ul>
+                <li><a href="{% url 'principal:home' %}">Inicio</a></li>
+                <li><a href="{% url 'principal:proyecto-nuevo' %}">Nuevo Proyecto</a></li>
+                <li><a href="{% url 'principal:contacto' %}">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        <!-- El contenido específico de cada página se insertará aquí -->
+        {% endblock %}
+    </main>
+    <footer>
+        <!-- Contenido del pie de página -->
+        <p>&copy; 2025 Mi Sitio Web</p>
+    </footer>
+    <!-- Enlaces a archivos JavaScript -->
+    {% block extrascripts %}{% endblock %}
+</body>
+</html>
+
+
