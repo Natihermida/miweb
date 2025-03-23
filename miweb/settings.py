@@ -126,7 +126,9 @@ STATIC_URL = 'static/'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
-
+# filepath: c:\python\django\miweb\miweb\settings.py
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'principal:home'
 
 
 # Default primary key field type

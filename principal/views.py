@@ -1,14 +1,10 @@
+# filepath: c:\python\django\miweb\principal\views.py
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
-from .forms import ProyectoForm
-
-# Create your views here.
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Proyecto
 from .forms import ProyectoForm
-from. import views
-
-from django.shortcuts import render
 
 def home_view(request):
     # Lógica de la vista
@@ -22,27 +18,31 @@ class ProyectoDetailView(DetailView):
     model = Proyecto
     template_name = 'proyecto_detail.html'
 
-class ProyectoCreateView(CreateView):
+class ProyectoCreateView(LoginRequiredMixin, CreateView):
     model = Proyecto
     template_name = 'proyecto_form.html'
     fields = ['nombre', 'descripcion', 'tecnologias', 'imagen', 'enlace']
+    login_url = 'login'  # Redirigir a la página de inicio de sesión si no está autenticado
 
-class ProyectoUpdateView(UpdateView):
+class ProyectoUpdateView(LoginRequiredMixin, UpdateView):
     model = Proyecto
     template_name = 'proyecto_form.html'
     fields = ['nombre', 'descripcion', 'tecnologias', 'imagen', 'enlace']
+    login_url = 'login'
 
-class ProyectoDeleteView(DeleteView):
+class ProyectoDeleteView(LoginRequiredMixin, DeleteView):
     model = Proyecto
     template_name = 'proyecto_confirm_delete.html'
-    success_url = reverse_lazy('proyecto-lista')
-
+    success_url = reverse_lazy('principal:proyecto-lista')
+    login_url = 'login'
 
 def contacto_view(request):
     return render(request, 'contacto.html')
-# views.py
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
-from .forms import ProyectoForm
+
+
+
+
+
+
 
 

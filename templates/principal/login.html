@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'principal:home' %}">Inicio</a></li>
+                <li><a href="{% url 'principal:proyecto-lista' %}">Proyectos</a></li>
+                <li><a href="{% url 'principal:contacto' %}">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Iniciar Sesión</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2025 Mi Sitio Web</p>
+    </footer>
+</body>
+</html>
