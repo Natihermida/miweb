@@ -36,3 +36,13 @@ class ProyectoDeleteView(DeleteView):
     model = Proyecto
     template_name = 'proyecto_confirm_delete.html'
     success_url = reverse_lazy('proyecto-lista')
+
+
+def contacto_view(request):
+    return render(request, 'contacto.html')
+# views.py
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+from .forms import ProyectoForm
+
+

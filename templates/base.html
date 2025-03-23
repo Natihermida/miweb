@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Mi Sitio Web{% endblock %}</title>
     <!-- Enlaces a archivos CSS -->
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
     {% block extrahead %}{% endblock %}
 </head>
 <body>
@@ -28,6 +30,7 @@
         <p>&copy; 2025 Mi Sitio Web</p>
     </footer>
     <!-- Enlaces a archivos JavaScript -->
+    <script src="{% static 'js/scripts.js' %}"></script>
     {% block extrascripts %}{% endblock %}
 </body>
 </html>
