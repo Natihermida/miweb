@@ -1,0 +1,14 @@
+<!-- filepath: c:\python\django\miweb\templates\principal\welcome.html -->
+{% extends "base.html" %}
+
+{% block title %}Bienvenidos a mi página de inicio{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center">Bienvenida Nati a tu Área Personal</h1>
+    <p class="text-center">Aquí puedes subir tus proyectos y gestionar tu contenido.</p>
+    <div class="text-center mt-4">
+        <a href="{% url 'principal:proyecto-nuevo' %}" class="btn btn-primary">Subir Nuevo Proyecto</a>
+    </div>
+</div>
+{% endblock %}

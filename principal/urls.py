@@ -14,6 +14,8 @@ urlpatterns = [
     path('proyectos/nuevo/', views.ProyectoCreateView.as_view(), name='proyecto-nuevo'),
     path('proyectos/editar/<int:pk>/', views.ProyectoUpdateView.as_view(), name='proyecto-editar'),
     path('proyectos/eliminar/<int:pk>/', views.ProyectoDeleteView.as_view(), name='proyecto-eliminar'),
-    path('contacto/', views.contacto_view, name='contacto'),  # Asegúrate de tener una vista para contacto
+    path('contacto/', views.contacto_view, name='contacto'),  
+     path('welcome/', views.welcome_view, name='welcome'),  # Nueva ruta para la vista de bienvenida
 ]
+
 

@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Proyecto
 from .forms import ProyectoForm
+from django.contrib.auth.decorators import login_required
 
 def home_view(request):
     # Lógica de la vista
@@ -38,6 +39,10 @@ class ProyectoDeleteView(LoginRequiredMixin, DeleteView):
 
 def contacto_view(request):
     return render(request, 'contacto.html')
+
+login_required
+def welcome_view(request):
+    return render(request, 'principal/welcome.html')
 
 
 
