@@ -1,8 +1,21 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Página de Inicio - Mi Sitio Web{% endblock %}
+{% block title %}Inicio - Naty Hermida{% endblock %}
 
 {% block content %}
-<h1>Bienvenidos a la Página de Inicio</h1>
-<p>Este es el contenido principal de la página de inicio.</p>
+<div class="home-container">
+    <div class="home-text">
+        <h1>Hi, I'm <span class="highlight">Naty Hermida</span></h1>
+        <p>Web Developer</p>
+        <div class="buttons">
+            <a href="{% url 'principal:contacto' %}" class="btn btn-contact">Contacto</a>
+            <a href="{% url 'principal:proyecto-lista' %}" class="btn btn-projects">Mis Proyectos</a>
+        </div>
+    </div>
+    <div class="home-image">
+        <img src="{% static 'img/mifoto.jpg' %}" alt="Naty Hermida">
+    </div>
+</div>
 {% endblock %}
+

@@ -8,7 +8,7 @@
     <title>{% block title %}Mi Sitio Web{% endblock %}</title>
     <!-- Enlaces a Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     {% block extrahead %}{% endblock %}
 </head>
 <body>
@@ -33,9 +33,7 @@
         <!-- El contenido específico de cada página se insertará aquí -->
         {% endblock %}
     </main>
-    <footer class="footer bg-light text-center py-3">
-        <p>&copy; 2025 Mi Sitio Web</p>
-    </footer>
+   
     <!-- Enlaces a Bootstrap JS y dependencias -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

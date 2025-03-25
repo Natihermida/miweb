@@ -38,6 +38,14 @@ class ProyectoDeleteView(LoginRequiredMixin, DeleteView):
     login_url = 'login'
 
 def contacto_view(request):
+    #TODO, cuando recibo el formulario de contacto envier correo a mi correo
+    if request.method == 'POST':
+        nombre = request.POST.get('nombre')
+        email = request.POST.get('email')
+        mensaje = request.POST.get('mensaje')
+        print(f'Nombre: {nombre}, Email: {email}, Mensaje: {mensaje}')
+        #TODO: enviar correo
+       #ENVIAR EL CORREO Y DESCARGAR LIBRERRIA .
     return render(request, 'contacto.html')
 
 login_required
