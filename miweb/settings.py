@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -135,3 +137,26 @@ LOGIN_REDIRECT_URL = 'principal:welcome'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import environ
+import os
+
+# Definir BASE_DIR primero
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+
+# Inicializar django-environ después de definir BASE_DIR
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env')) 
+
+
+
+EMAIL_BACKEND = env("EMAIL_BACKEND", default="django.core.mail.backends.smtp.EmailBackend")
+EMAIL_HOST = env("EMAIL_HOST", default="smtp.gmail.com")
+EMAIL_PORT = env.int("EMAIL_PORT", default=587)
+EMAIL_USE_TLS = env.bool("EMAIL_USE_TLS", default=True)
+EMAIL_HOST_USER = env('EMAIL_HOST_USER', default='itcode1992@gmail.com')
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD",default='rftk qoak aijl tkuw')
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
