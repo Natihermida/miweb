@@ -1,4 +1,3 @@
-<!-- filepath: c:\python\django\miweb\templates\base.html -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
@@ -10,30 +9,55 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     {% block extrahead %}{% endblock %}
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+        .navbar {
+            background-color: black !important;
+        }
+        .navbar-nav .nav-link {
+            color: yellow !important;
+        }
+        .navbar-nav .nav-link:hover {
+            color: gold !important;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh; /* Ajusta esto si quieres más espacio */
+        }
+        .content-wrapper {
+            width: 100%;
+            max-width: 1200px; /* Ancho máximo para el contenido */
+        }
+    </style>
 </head>
 <body>
     <header>
-        <!-- Contenido del encabezado, como el logo y el menú de navegación -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="{% url 'principal:home' %}">Mi Sitio Web</a>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand text-white" href="{% url 'principal:home' %}">Mi Sitio Web</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="{% url 'principal:home' %}">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'principal:proyecto-lista' %}">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'principal:proyecto-lista' %}">Mis Proyectos</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'principal:contacto' %}">Contacto</a></li>
                 </ul>
             </div>
         </nav>
     </header>
-    <main class="container mt-4">
-        {% block content %}
-        <!-- El contenido específico de cada página se insertará aquí -->
-        {% endblock %}
+    <main>
+        <div class="content-wrapper">
+            {% block content %}
+            {% endblock %}
+        </div>
     </main>
-   
+    
     <!-- Enlaces a Bootstrap JS y dependencias -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
@@ -42,4 +66,3 @@
     {% block extrascripts %}{% endblock %}
 </body>
 </html>
-

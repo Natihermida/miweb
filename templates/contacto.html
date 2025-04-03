@@ -3,51 +3,54 @@
 {% block title %}Contacto{% endblock %}
 
 {% block content %}
-<div class="container mt-4">
-    <h1 class="text-center mb-4">Cuéntame tu proyecto</h1>
+<div class="container mt-4 d-flex justify-content-center">
+    <div class="text-center" style="max-width: 600px;">
+        <h1 class="mb-4">Cuéntame tu proyecto</h1>
 
-    <!-- Formulario de Contacto -->
-    <form method="post">
-        {% csrf_token %}
-        
-        <div class="row">
-            <!-- Nombre -->
-            <div class="form-group col-md-6">
-                <label for="nombre">Nombre</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Introduce tu nombre" required>
+        <!-- Formulario de Contacto -->
+        <form method="post" class="mx-auto">
+            {% csrf_token %}
+            
+            <div class="row">
+                <!-- Nombre -->
+                <div class="form-group col-md-6">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Introduce tu nombre" required>
+                </div>
+                
+                <!-- Correo Electrónico -->
+                <div class="form-group col-md-6">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Introduce tu correo electrónico" required>
+                </div>
+            </div>
+
+            <!-- Mensaje -->
+            <div class="form-group">
+                <label for="mensaje">Mensaje</label>
+                <textarea class="form-control" id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
             </div>
             
-            <!-- Correo Electrónico -->
-            <div class="form-group col-md-6">
-                <label for="email">Correo Electrónico</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Introduce tu correo electrónico" required>
+            <!-- Botón de Enviar -->
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
             </div>
-        </div>
+        </form>
 
-        <!-- Mensaje -->
-        <div class="form-group">
-            <label for="mensaje">Mensaje</label>
-            <textarea class="form-control" id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
-        </div>
-        
-        <!-- Botón de Enviar -->
-        <div class="form-group text-center">
-            <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
-        </div>
-    </form>
-
-    <!-- Mensajes de éxito o error -->
-    {% if messages %}
-        <div class="mt-3">
-            {% for message in messages %}
-                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                    {{ message }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            {% endfor %}
-        </div>
-    {% endif %}
+        <!-- Mensajes de éxito o error -->
+        {% if messages %}
+            <div class="mt-3">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
+
