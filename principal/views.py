@@ -22,6 +22,10 @@ class ProyectoDetailView(DetailView):
     model = Proyecto
     template_name = 'proyecto_detail.html'
 
+def proyectos(request):
+    # Obtener todos los proyectos
+    proyectos = Proyecto.objects.all()
+    return render(request, 'proyecto_list.html', {'proyectos': proyectos})
 
 def contacto_view(request):
     # Cuando se recibe el formulario de contacto, enviar correo a mi correo
